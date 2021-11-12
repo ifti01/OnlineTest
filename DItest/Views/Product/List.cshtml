@@ -1,0 +1,59 @@
+﻿@using DItest.Models
+@model DItest.ViewModel.ProductViewModel
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Rate</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.Products != null && Model.Products.Count() > 0)
+    {
+
+        foreach (var item in Model.Products)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.ProductName</td>
+                <td>@item.Unit</td>
+                <td>@item.Rate</td>
+                <td>
+                    @Html.ActionLink("Update", "Update", new { id = item.Id })
+                    @*<button type="button" id="updateBtn" class="btn btn-danger">Update</button>*@
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+
+@*<script>
+    $("#updateBtn").click(function () {
+        $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Update", "Product")',
+                data: {
+                    Id: $(this).attr('data-id')
+                }
+
+            })
+            .done(function (response) {
+                console.log(response);
+                window.location.href = window.location.href;
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+    });
+</script>*@
