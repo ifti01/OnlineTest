@@ -39,6 +39,12 @@ namespace DItest.Controllers
             return View(model);
         }
 
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public ActionResult Delete(int Id)
         {
