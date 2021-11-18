@@ -138,6 +138,10 @@
     <Compile Include="Migrations\202111110605002_PageAdded.designer.cs">
       <DependentUpon>202111110605002_PageAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111151419020_InfoAdded.cs" />
+    <Compile Include="Migrations\202111151419020_InfoAdded.designer.cs">
+      <DependentUpon>202111151419020_InfoAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -148,6 +152,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\SaleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -191,10 +196,12 @@
     <Content Include="Views\Customer\Entry.cshtml" />
     <Content Include="Views\Customer\List.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Sales\SaleList.cshtml" />
+    <Content Include="Views\Sales\SaleInfoCustomer.cshtml" />
+    <Content Include="Views\Sales\SaleInfoProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Sales\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -212,6 +219,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202111110605002_PageAdded.resx">
       <DependentUpon>202111110605002_PageAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111151419020_InfoAdded.resx">
+      <DependentUpon>202111151419020_InfoAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

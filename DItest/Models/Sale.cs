@@ -12,6 +12,6 @@ namespace DItest.Models
         public int CustomerId { get; set; }
         public string DeliveryAddress { get; set; }
         public DateTime SaleDateTime { get; set; }
-        public double TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
     }
 }

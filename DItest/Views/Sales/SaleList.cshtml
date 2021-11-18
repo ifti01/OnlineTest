@@ -1,0 +1,103 @@
+﻿@model DItest.ViewModel.SaleListViewModel
+
+@{
+    ViewBag.Title = "SaleList";
+}
+
+<h2>SaleList</h2>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<form>
+    <div class="row">
+        <div class="col-md-6" >
+            <div class="form-group">
+
+                <label>Customer</label>
+
+                <select class="form-control" name="CustomerId" id="SelectCustomer">
+
+                    <option value="0">Select</option>
+
+                    @foreach (var customer in Model.Customers)
+
+                    {
+                        <option value="@customer.Id">@customer.CustomerName</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6" >
+            <div class="form-group">
+
+                <label>Product</label>
+
+                <select class="form-control" name="ProductId" id="SelectProduct">
+
+                    <option value="0">Select</option>
+
+                    @foreach (var product in Model.Products)
+
+                    {
+                        <option value="@product.Id">@product.ProductName</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="finaldiv">
+    <div>
+        <form id="customerpage">
+        </form>
+    </div>
+    <div>
+        <form id="productpage">
+        </form>
+    </div>
+</div>
+
+<script>
+    $("#SelectCustomer").change(function () {
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("SaleSave", "Sales")',
+            data: {
+                customerId: $("#SelectCustomer").val()
+               
+    }
+        })
+            .done(function (response) {
+                $("#customerpage").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+    });
+
+    $("#SelectProduct").change(function () {
+        $.ajax({
+                type: "post",
+                url: '@Url.Action("SaleProductsSave", "Sales")',
+                data: {
+                    productId: $("#SelectProduct").val(),
+                    customerId: $("#SelectCustomer").val()
+                    
+                }
+            })
+            .done(function (response) {
+                $("#productpage").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+    });
+
+
+</script>

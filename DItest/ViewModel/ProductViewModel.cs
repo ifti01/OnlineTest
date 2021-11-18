@@ -8,6 +8,7 @@ namespace DItest.ViewModel
 {
     public class ProductViewModel
     {
+
         public List<Product> Products { get; set; }
     }
 }
